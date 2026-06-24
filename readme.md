@@ -2,12 +2,27 @@
 
 ## Descricao
 
-O Podcast Manager e uma API para centralizar episodios de podcasts em video, organizados por categoria. O projeto permite listar episodios disponiveis e filtrar resultados pelo nome do podcast.
+O Podcast Manager e uma API em Node.js e TypeScript criada para organizar episodios de podcasts em video por categorias. A ideia do projeto e simular uma base simples de conteudos, permitindo listar todos os episodios cadastrados ou buscar episodios pelo nome do podcast.
+
+Este e um repositorio temporario para estudos, usado por Jefferson Pereira Salvador para praticar conceitos de API sem framework, rotas, controllers, services, repositories e modelos em TypeScript.
 
 ## Funcionalidades
 
-- Listar episodios de podcasts por categorias, como saude, esporte, bodybuilder, mentalidade e humor.
+- Listar episodios de podcasts separados por categorias.
 - Filtrar episodios pelo nome do podcast.
+- Retornar respostas padronizadas em JSON.
+- Organizar a aplicacao em camadas simples.
+
+## Estrutura do Projeto
+
+- `src/server.ts`: inicializacao do servidor.
+- `src/app.ts`: configuracao principal da aplicacao.
+- `src/routes`: definicao das rotas.
+- `src/controllers`: entrada das requisicoes.
+- `src/services`: regras de listagem e filtro.
+- `src/repositories`: leitura dos dados dos podcasts.
+- `src/models`: contratos usados pela aplicacao.
+- `src/utils`: codigos HTTP, metodos e tipos de conteudo.
 
 ## Endpoints
 
@@ -15,7 +30,7 @@ O Podcast Manager e uma API para centralizar episodios de podcasts em video, org
 
 - **Metodo:** `GET`
 - **Rota:** `/list`
-- **Descricao:** retorna uma lista de episodios de podcasts organizados por categorias.
+- **Descricao:** retorna a lista de episodios cadastrados.
 
 Exemplo de resposta:
 
@@ -28,25 +43,17 @@ Exemplo de resposta:
     "cover": "https://i.ytimg.com/vi/pQSuQmUfS30/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=pQSuQmUfS30",
     "categories": ["saude", "esporte", "bodybuilder"]
-  },
-  {
-    "podcastName": "flow",
-    "episode": "RUBENS BARRICHELLO - Flow #339",
-    "videoId": "4KDGTdiOV4I",
-    "cover": "https://i.ytimg.com/vi/4KDGTdiOV4I/maxresdefault.jpg",
-    "link": "https://www.youtube.com/watch?v=4KDGTdiOV4I",
-    "categories": ["esporte", "corrida"]
   }
 ]
 ```
 
-### Filtrar episodios
+### Filtrar episodio por podcast
 
 - **Metodo:** `GET`
 - **Rota:** `/episode?podcastName={nome}`
-- **Descricao:** retorna episodios de podcast com base no nome informado.
+- **Descricao:** retorna episodios de acordo com o nome do podcast informado.
 
-Exemplo de requisicao:
+Exemplo:
 
 ```http
 GET /episode?podcastName=flow
@@ -54,10 +61,10 @@ GET /episode?podcastName=flow
 
 ## Tecnologias
 
-- TypeScript
 - Node.js
-- Tsup
+- TypeScript
 - Tsx
+- Tsup
 - @types/node
 
 ## Como executar
@@ -74,8 +81,12 @@ npm install
 npm run start:dev
 ```
 
-3. Acesse os endpoints disponiveis para listar ou filtrar os episodios.
+3. Acesse os endpoints configurados no projeto.
 
-## Licenca
+## Autor
 
-Uso livre para estudos e evolucao do projeto.
+Jefferson Pereira Salvador
+
+## Observacao
+
+Repositorio temporario para estudos, testes e evolucao pessoal em desenvolvimento backend com Node.js.
